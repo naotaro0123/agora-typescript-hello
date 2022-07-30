@@ -1,3 +1,4 @@
+import EslintPlugin from 'eslint-webpack-plugin';
 import type { RuleSetRule, Configuration } from 'webpack';
 
 const rules: RuleSetRule[] = [
@@ -23,6 +24,7 @@ const config: Configuration = {
     extensions: ['.ts', '.js'],
   },
   devtool: 'eval-source-map',
+  plugins: [new EslintPlugin({ exclude: 'node_modules' })],
 };
 
 export default config;
