@@ -1,16 +1,12 @@
 module.exports = {
   root: true,
-  env: {
-    browser: true,
-    node: true,
-  },
   parser: '@typescript-eslint/parser',
   parserOptions: {
     sourceType: 'module',
     project: './tsconfig.json',
   },
   extends: ['eslint:recommended', 'plugin:prettier/recommended', 'prettier'],
-  plugins: ['prettier', 'import', 'unused-imports'],
+  plugins: ['prettier', 'import', 'unused-imports', '@typescript-eslint'],
   env: {
     browser: true,
     node: true,
@@ -32,16 +28,19 @@ module.exports = {
         groups: ['builtin', 'external', 'parent', 'sibling', 'index', 'object', 'type'],
         pathGroups: [
           {
-            pattern: '@alias/**',
+            pattern: '@src/**',
             group: 'parent',
             position: 'before',
           },
         ],
+        pathGroupsExcludedImportTypes: ['builtin'],
         alphabetize: {
           order: 'asc',
+          caseInsensitive: true,
         },
       },
     ],
+    '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports' }],
   },
   ignorePatterns: ['.eslintrc.*'],
 };
