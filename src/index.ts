@@ -1,6 +1,7 @@
 import AgoraRTC from 'agora-rtc-sdk-ng';
 import { v4 as uuidv4 } from 'uuid';
 import type { IMicrophoneAudioTrack, IAgoraRTCClient, ICameraVideoTrack } from 'agora-rtc-sdk-ng';
+import './index.css';
 
 type RTC = {
   localAudioTrack: IMicrophoneAudioTrack | null;
